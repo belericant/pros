@@ -23,7 +23,15 @@
 #ifndef _PROS_API_EXTENDED_H_
 #define _PROS_API_EXTENDED_H_
 
+#define PROS_KERNEL_PRE_INIT 110
+
+#define PROS_KERNEL_INIT     120
+
 #include "api.h"
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wall"
+#include "tmei/graphics.h"
+#pragma GCC diagnostic pop
 #include "pros/serial.h"
 
 #ifdef __cplusplus
@@ -280,8 +288,9 @@ bool queue_append(queue_t queue, const void* item, uint32_t timeout);
  * \param buffer
  *        Pointer to a buffer to which the received item will be copied
  * \param timeout
- *        The maximum amount of time the task should block waiting for an item to receive should the queue be empty at
- *        the time of the call. TIMEOUT_MAX can be used to block indefinitely.
+ *        Time to wait for space to become available. A timeout of 0 can be used
+ *        to attempt to post without blocking. TIMEOUT_MAX can be used to block
+ *        indefinitely.
  *
  * \return True if an item was copied into the buffer, false otherwise.
  */
@@ -298,10 +307,9 @@ bool queue_peek(queue_t queue, void* const buffer, uint32_t timeout);
  * \param buffer
  *        Pointer to a buffer to which the received item will be copied
  * \param timeout
- *        The maximum amount of time the task should block
- *        waiting for an item to receive should the queue be empty at the time
- *        of the call. queue_recv() will return immediately if timeout
- *        is zero and the queue is empty.
+ *        Time to wait for space to become available. A timeout of 0 can be used
+ *        to attempt to post without blocking. TIMEOUT_MAX can be used to block
+ *        indefinitely.
  *
  * \return True if an item was copied into the buffer, false otherwise.
  */
