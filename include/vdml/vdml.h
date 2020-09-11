@@ -15,7 +15,7 @@
 
 #include <stdbool.h>
 #include <stdint.h>
-#include "vdml/registry.h"
+#include "pros/apix.h"
 
 /**
  * Macro, returns true if the port is in range of user configurable ports,

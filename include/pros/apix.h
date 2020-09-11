@@ -28,10 +28,6 @@
 #define PROS_KERNEL_INIT     120
 
 #include "api.h"
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wall"
-#include "tmei/graphics.h"
-#pragma GCC diagnostic pop
 #include "pros/serial.h"
 
 #ifdef __cplusplus
