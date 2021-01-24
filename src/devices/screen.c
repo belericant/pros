@@ -12,8 +12,8 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
+#include "display/graphics.h"
 #include "pros/screen.h"
-#include "tmei/graphics.h"
 
 /******************************************************************************/
 /**                  Screen Graphical Display Functions                      **/
@@ -282,21 +282,21 @@ void screen_vprintf_at(text_format_e_t txt_fmt, int16_t x, int16_t y, const char
 /******************************************************************************/
 
 int16_t screen_last_x(void){
-    return(touch_last_x());
+    return touch_last_x();
 }
 
 int16_t screen_last_y(void){
-    return(touch_last_y());
+    return touch_last_y();
 }
 
 last_touch_e_t screen_touch_status(void){
     switch (touch_last_event()){
         case E_TOUCH_EVENT_PRESS:
-            return(pressed);
+            return pressed;
         case E_TOUCH_EVENT_PRESS_AND_HOLD:
-            return(held);
+            return held;
         case E_TOUCH_EVENT_RELEASE:
         default:
-            return(released);
+            return released;
     }
 }

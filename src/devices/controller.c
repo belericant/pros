@@ -16,6 +16,7 @@
 
 #include "kapi.h"
 #include "v5_api.h"
+#include "vdml/registry.h"
 #include "vdml/vdml.h"
 
 #define CONTROLLER_MAX_COLS 19

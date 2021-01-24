@@ -1,7 +1,7 @@
 /**
  * \file screen.h
  *
- * \brief Brain screen display and touch functions.
+ * Brain screen display and touch functions.
  *
  * Contains user calls to the v5 screen for touching and displaying graphics.
  *
@@ -25,7 +25,7 @@
 #include "pros/colors.h"     // c color macros
 
 /**
- * \brief Different font sizes that can be used in printing text.
+ * Different font sizes that can be used in printing text.
  * Also can determine if the medium/large text is centered or not.
  * 
  *  small - Small text font size
@@ -53,7 +53,7 @@ namespace c {
 #endif
 
 /**
- * \brief Can be used to determine what the current touch status is for the touchscreen.
+ * Can be used to determine what the current touch status is for the touchscreen.
  * (Seems redundant, but exists for the sake of user ease)
  *  
  *  pressed - Last interaction with screen was a quick press (not released yet)
@@ -75,154 +75,154 @@ typedef enum {
 /******************************************************************************/
 
 /**
- * \brief Set the pen color for subsequent graphics operations
+ * Set the pen color for subsequent graphics operations
  *
- * \param[in] color	The pen color to set (it is recommended to use values
+ * \param color	The pen color to set (it is recommended to use values
  * 		 from the enum defined in colors.h)
  */
 void screen_set_pen(uint32_t color);
 
 /**
- * \brief Set the eraser color for clearing and the current background.
+ * Set the eraser color for clearing and the current background.
  *
- * \param[in] color	The background color to set (it is recommended to use values
+ * \param color	The background color to set (it is recommended to use values
  * 					from the enum defined in colors.h)
  */
 void screen_set_eraser(uint32_t color);
 
 /**
- * \brief  Get the current pen color.
+ *  Get the current pen color.
  * 
  * \return The current pen color in the form of a value from the enum defined in colors.h.
  */
 uint32_t screen_get_pen(void);
 
 /**
- * \brief Get the current eraser color.
+ * Get the current eraser color.
  *
  * \return The current eraser color in the form of a value from the enum defined in colors.h.
  */
 uint32_t screen_get_eraser(void);
 
 /**
- * \brief Reset the display to the default black screen
+ * Reset the display to the default black screen
  */
 void screen_clear(void);
 
 /**
- * \brief Scroll lines on the display upwards.
+ * Scroll lines on the display upwards.
  *
- * \param[in] start_line	The line from which scrolling will start
- * \param[in] lines			The number of lines to scroll up
+ * \param start_line	The line from which scrolling will start
+ * \param lines			The number of lines to scroll up
  */
 void screen_scroll(int16_t start_line, int16_t lines);
 
 /**
- * \brief Scroll lines within a region on the display
+ * Scroll lines within a region on the display
  *
  * This function behaves in the same way as `screen_scroll`, except that you
  * specify a rectangular region within which to scroll lines instead of a start
  * line.
  *
- * \param[in] x0, y0	The (x,y) coordinates of the first corner of the
+ * \param x0, y0	The (x,y) coordinates of the first corner of the
  * 						rectangular region
- * \param[in] x1, y1	The (x,y) coordinates of the second corner of the
+ * \param x1, y1	The (x,y) coordinates of the second corner of the
  * 						rectangular region
- * \param[in] lines 	The number of lines to scroll upwards
+ * \param lines 	The number of lines to scroll upwards
  */
 void screen_scroll_area(int16_t x0, int16_t y0, int16_t x1, int16_t y1, int16_t lines);
 
 /**
- * \brief Copy a screen region (designated by a rectangle) from an off-screen buffer 
+ * Copy a screen region (designated by a rectangle) from an off-screen buffer 
  * to the screen
  *
- * \param[in] x0, y0 	The (x,y) coordinates of the first corner of the
+ * \param x0, y0 	The (x,y) coordinates of the first corner of the
  * 						rectangular region of the screen
- * \param[in] x1, y1	The (x,y) coordinates of the second corner of the
+ * \param x1, y1	The (x,y) coordinates of the second corner of the
  * 						rectangular region of the screen
- * \param[in] buf		Off-screen buffer containing screen data
- * \param[in] stride	Off-screen buffer width in pixels, such that image size
+ * \param buf		Off-screen buffer containing screen data
+ * \param stride	Off-screen buffer width in pixels, such that image size
  * 						is stride-padding
  */
 void screen_copy_area(int16_t x0, int16_t y0, int16_t x1, int16_t y1, uint32_t* buf, int32_t stride);
 
 /**
- * \brief Draw a single pixel on the screen using the current pen color
+ * Draw a single pixel on the screen using the current pen color
  *
- * \param[in] x, y 	The (x,y) coordinates of the pixel
+ * \param x, y 	The (x,y) coordinates of the pixel
  */
 void screen_draw_pixel(int16_t x, int16_t y);
 
 /**
- * \brief Clear a pixel from the screen (Sets the location)
+ * Clear a pixel from the screen (Sets the location)
  *
- * \param[in] x, y 	The (x,y) coordinates of the cleared
+ * \param x, y 	The (x,y) coordinates of the cleared
  */
 void screen_clear_pixel(int16_t x, int16_t y);
 
 /**
- * \brief Draw a line on the screen using the current pen color
+ * Draw a line on the screen using the current pen color
  *
- * \param[in] x0, y0	The (x, y) coordinates of the first point of the line
- * \param[in] x1, y1 	The (x, y) coordinates of the second point of the line
+ * \param x0, y0	The (x, y) coordinates of the first point of the line
+ * \param x1, y1 	The (x, y) coordinates of the second point of the line
  */
 void screen_draw_line(int16_t x0, int16_t y0, int16_t x1, int16_t y1);
 
 /**
- * \brief Draw a line on the screen using the current background color
+ * Draw a line on the screen using the current background color
  *
- * \param[in] x0, y0	The (x, y) coordinates of the first point of the line
- * \param[in] x1, y1 	The (x, y) coordinates of the second point of the line
+ * \param x0, y0	The (x, y) coordinates of the first point of the line
+ * \param x1, y1 	The (x, y) coordinates of the second point of the line
  */
 void screen_clear_line(int16_t x0, int16_t y0, int16_t x1, int16_t y1);
 
 /**
- * \brief Draw a rectangle on the screen using the current pen color
+ * Draw a rectangle on the screen using the current pen color
  *
- * \param[in] x0, y0 	The (x,y) coordinates of the first point of the rectangle
- * \param[in] x1, y1 	The (x,y) coordinates of the second point of the rectangle
+ * \param x0, y0 	The (x,y) coordinates of the first point of the rectangle
+ * \param x1, y1 	The (x,y) coordinates of the second point of the rectangle
  */
 void screen_draw_rect(int16_t x0, int16_t y0, int16_t x1, int16_t y1);
 
 /**
- * \brief Draw a rectangle on the screen using the current eraser color
+ * Draw a rectangle on the screen using the current eraser color
  *
- * \param[in] x0, y0 	The (x,y) coordinates of the first point of the rectangle
- * \param[in] x1, y1 	The (x,y) coordinates of the second point of the rectangle
+ * \param x0, y0 	The (x,y) coordinates of the first point of the rectangle
+ * \param x1, y1 	The (x,y) coordinates of the second point of the rectangle
  */
 void screen_clear_rect(int16_t x0, int16_t y0, int16_t x1, int16_t y1);
 
 /**
- * \brief Fill a rectangular region of the screen using the current pen
+ * Fill a rectangular region of the screen using the current pen
  * 		  color
  *
- * \param[in] x0, y0 	The (x,y) coordinates of the first point of the rectangle
- * \param[in] x1, y1 	The (x,y) coordinates of the second point of the rectangle
+ * \param x0, y0 	The (x,y) coordinates of the first point of the rectangle
+ * \param x1, y1 	The (x,y) coordinates of the second point of the rectangle
  */
 void screen_fill_rect(int16_t x0, int16_t y0, int16_t x1, int16_t y1);
 
 /**
- * \brief Draw a circle on the screen using the current pen color
+ * Draw a circle on the screen using the current pen color
  *
- * \param[in] x, y 	The (x,y) coordinates of the center of the circle
- * \param[in] r 	The radius of the circle
+ * \param x, y 	The (x,y) coordinates of the center of the circle
+ * \param r 	The radius of the circle
  */
 void screen_draw_circle(int16_t x, int16_t y, int16_t radius);
 
 /**
- * \brief Draw a circle on the screen using the current eraser color
+ * Draw a circle on the screen using the current eraser color
  *
- * \param[in] x, y 	The (x,y) coordinates of the center of the circle
- * \param[in] r 	The radius of the circle
+ * \param x, y 	The (x,y) coordinates of the center of the circle
+ * \param r 	The radius of the circle
  */
 void screen_clear_circle(int16_t x, int16_t y, int16_t radius);
 
 /**
- * \brief Fill a circular region of the screen using the current pen
+ * Fill a circular region of the screen using the current pen
  * 		  color
  *
- * \param[in] x, y 	The (x,y) coordinates of the center of the circle
- * \param[in] r 	The radius of the circle
+ * \param x, y 	The (x,y) coordinates of the center of the circle
+ * \param r 	The radius of the circle
  */
 void screen_fill_circle(int16_t x, int16_t y, int16_t radius);
 
@@ -233,57 +233,57 @@ void screen_fill_circle(int16_t x, int16_t y, int16_t radius);
 /******************************************************************************/
 
 /**
- * \brief Print a normal unformatted string to the screen on the specified line
+ * Print a normal unformatted string to the screen on the specified line
  * 
  * Will default to a medium sized font by default if invalid text_format is given.
  * 
- * \param[in] txt_fmt Text format enum that determines if the text is medium, large, medium_center, large_center. (DOES NOT SUPPORT SMALL)
- * \param[in] line The line number on which to print
- * \param[in] text The text to display
+ * \param txt_fmt Text format enum that determines if the text is medium, large, medium_center, large_center. (DOES NOT SUPPORT SMALL)
+ * \param line The line number on which to print
+ * \param text The text to display
  */
 void screen_print(text_format_e_t txt_fmt, const int16_t line, const char* text);
 
 /**
- * \brief Print a normal unformatted string to the screen at the specified coordinates
+ * Print a normal unformatted string to the screen at the specified coordinates
  * 
  * Will default to a medium sized font by default if invalid text_format is given.
  * 
  * Text formats medium_center and large_center will default to medium and large respectively.
  * 
- * \param[in] txt_fmt Text format enum that determines if the text is small, medium, and large.
- * \param[in] x, y The (x,y) coordinates of the top left corner of the string
- * \param[in] text The text to display
+ * \param txt_fmt Text format enum that determines if the text is small, medium, and large.
+ * \param x, y The (x,y) coordinates of the top left corner of the string
+ * \param text The text to display
  */
 void screen_print_at(text_format_e_t txt_fmt, int16_t x, int16_t y, const char* text);
 
 /**
- * \brief Print a formatted string to the screen on the specified line
+ * Print a formatted string to the screen on the specified line
  * 
  * Will default to a medium sized font by default if invalid text_format is given.
  * 
- * \param[in] txt_fmt Text format enum that determines if the text is medium, large, medium_center, or large_center. (DOES NOT SUPPORT SMALL)
- * \param[in] line The line number on which to print
- * \param[in] fmt  Format string
- * \param[in] ...  Optional list of arguments for the format string
+ * \param txt_fmt Text format enum that determines if the text is medium, large, medium_center, or large_center. (DOES NOT SUPPORT SMALL)
+ * \param line The line number on which to print
+ * \param fmt  Format string
+ * \param ...  Optional list of arguments for the format string
  */
 void screen_printf(text_format_e_t txt_fmt, const int16_t line, const char* text, ...);
 
 /**
- * \brief Print a formatted string to the screen at the specified point
+ * Print a formatted string to the screen at the specified point
  * 
  * Will default to a medium sized font by default if invalid text_format is given.
  * 
  * Text formats medium_center and large_center will default to medium and large respectively.
  * 
- * \param[in] txt_fmt Text format enum that determines if the text is small, medium, or large.
- * \param[in] x, y The (x,y) coordinates of the top left corner of the string
- * \param[in] fmt  Format string
- * \param[in] ...  Optional list of arguments for the format string
+ * \param txt_fmt Text format enum that determines if the text is small, medium, or large.
+ * \param x, y The (x,y) coordinates of the top left corner of the string
+ * \param fmt  Format string
+ * \param ...  Optional list of arguments for the format string
  */
 void screen_printf_at(text_format_e_t txt_fmt, const int16_t x, const int16_t y, const char* text, ...);
 
 /**
- * \brief Print a formatted string to the screen on the specified line
+ * Print a formatted string to the screen on the specified line
  *
  * Same as `display_printf` except that this uses a `va_list` instead of the
  * ellipsis operator so this can be used by other functions.
@@ -291,15 +291,15 @@ void screen_printf_at(text_format_e_t txt_fmt, const int16_t x, const int16_t y,
  * Will default to a medium sized font by default if invalid text_format is given.
  * Exposed mostly for writing libraries and custom functions.
  * 
- * \param[in] txt_fmt Text format enum that determines if the text is medium, large, medium_center, or large_center. (DOES NOT SUPPORT SMALL)
- * \param[in] line The line number on which to print
- * \param[in] fmt  Format string
- * \param[in] args List of arguments for the format string
+ * \param txt_fmt Text format enum that determines if the text is medium, large, medium_center, or large_center. (DOES NOT SUPPORT SMALL)
+ * \param line The line number on which to print
+ * \param fmt  Format string
+ * \param args List of arguments for the format string
  */
 void screen_vprintf(text_format_e_t txt_fmt, const int16_t line, const char* fmt, va_list args);
 
 /**
- * \brief Print a formatted string to the screen at the specified coordinates
+ * Print a formatted string to the screen at the specified coordinates
  *
  * Same as `display_printf_at` except that this uses a `va_list` instead of the
  * ellipsis operator so this can be used by other functions.
@@ -309,10 +309,10 @@ void screen_vprintf(text_format_e_t txt_fmt, const int16_t line, const char* fmt
  * Text formats medium_center and large_center will default to medium and large respectively.
  * Exposed mostly for writing libraries and custom functions.
  * 
- * \param[in] txt_fmt Text format enum that determines if the text is small, medium, or large.
- * \param[in] x, y The (x,y) coordinates of the top left corner of the string
- * \param[in] fmt  Format string
- * \param[in] args List of arguments for the format string
+ * \param txt_fmt Text format enum that determines if the text is small, medium, or large.
+ * \param x, y The (x,y) coordinates of the top left corner of the string
+ * \param fmt  Format string
+ * \param args List of arguments for the format string
  */
 void screen_vprintf_at(text_format_e_t txt_fmt, const int16_t x, const int16_t y, const char* fmt, va_list args);
 
@@ -324,21 +324,21 @@ void screen_vprintf_at(text_format_e_t txt_fmt, const int16_t x, const int16_t y
 /******************************************************************************/
 
 /**
- * \brief Gets the x coordinate of the last touch. 0 by default.
+ * Gets the x coordinate of the last touch. 0 by default.
  * 
  * \return The x coordinate of the last touch.
  */
 int16_t screen_last_x(void);
 
 /**
- * \brief Gets the y coordinate of the last touch. 0 by default.
+ * Gets the y coordinate of the last touch. 0 by default.
  * 
  * \return The y coordinate of the last touch.
  */
 int16_t screen_last_y(void);
 
 /**
- * \brief Gets the touch status of the last touch of the screen.
+ * Gets the touch status of the last touch of the screen.
  * 
  * \return The touch_event_e_t enum specifier that indicates the last touch status of the screen (E_TOUCH_EVENT_RELEASE, E_TOUCH_EVENT_PRESS, or E_TOUCH_EVENT_PRESS_AND_HOLD).
  * This will be released by default if no action was taken. 

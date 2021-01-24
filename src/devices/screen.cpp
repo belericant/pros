@@ -12,9 +12,8 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
+#include "display/graphics.h"
 #include "pros/screen.hpp"
-#include "tmei/graphics.h"
-#include <cstdint>
 
 namespace pros {
 using namespace pros::c;
