@@ -1,5 +1,5 @@
 /*
- * \file tmei.c
+ * \file graphics.c
  *
  * \brief Touch Management Engine/Interface layer 0
  *

@@ -31,6 +31,8 @@
 
 #ifdef __cplusplus
 extern "C" {
+namespace pros {
+namespace c {
 #endif
 
 /**
@@ -448,5 +450,7 @@ void register_touch_callback(touch_event_cb_fn_t cb, touch_event_e_t event_type)
 void _handle_touch_events(V5_TouchEvent event, int16_t x, int16_t y);
 
 #ifdef __cplusplus
+}
+}
 }
 #endif  // extern "C"
