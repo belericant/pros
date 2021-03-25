@@ -1,7 +1,8 @@
 /*
  * \file graphics.c
  *
- * \brief Touch Management Engine/Interface layer 0
+ * \brief Lower level graphical functions for screen displays. This lower level
+ * is necessary to house the system task that should not be visible to users.
  *
  * This file represents a low-level interface for interacting with the built-in
  * LCD touch screen.
@@ -27,6 +28,7 @@ void display_set_color_fg(uint32_t color) {
 	vexDisplayForegroundColor(color);
 	mutex_give(_tmei_mutex);
 }
+
 void display_set_color_bg(uint32_t color) {
 	mutex_take(_tmei_mutex, TIMEOUT_MAX);
 	vexDisplayBackgroundColor(color);

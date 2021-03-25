@@ -19,7 +19,6 @@
 #include <cstdint>
 
 namespace pros {
-using namespace pros::c;
 
 class Screen {
     public:
@@ -35,9 +34,9 @@ class Screen {
 
 	Screen(void);
 
-	Screen(const std::uint32_t pen_color);
+	Screen(const std::uint32_t pen_color) : _pen_color(pen_color);
 
-    Screen(const std::uint32_t pen_color, const std::uint32_t eraser_color);
+    Screen(const std::uint32_t pen_color, const std::uint32_t eraser_color) : _pen_color(pen_color);
 
     /******************************************************************************/
     /**                  Screen Graphical Display Functions                      **/
@@ -286,8 +285,8 @@ class Screen {
      */
     last_touch_e_t touch_status(void);
 private: 
-    std::uint32_t eraser_color;
-    std::uint32_t pen_color;
+    std::uint32_t _eraser_color;
+    std::uint32_t _pen_color;
 
 }; //class screen
 } //namespace pros
